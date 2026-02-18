@@ -1,60 +1,205 @@
-<div class="slider-container">
-    <div class="slide active" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80');">
-        <h1>97 CORP</h1>
-        <p>DEFINING THE DIGITAL AGE</p>
-    </div>
-    <div class="slide" style="background: linear-gradient(rgba(0,0,128,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=1200&q=80');">
-        <h1>LEGACY</h1>
-        <p>WINDOWS 97 PROFESSIONAL ALPHA</p>
-    </div>
-    <div class="slide" style="background: linear-gradient(rgba(106, 17, 203, 0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=1200&q=80');">
-        <h1>FUTURE</h1>
-        <p>WINDOWS 17 PROJECT REVEALED</p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>97 CORP | Future-Proof Legacy Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --corp-blue: #000080;
+            --accent-blue: #1084d0;
+            --future-purple: #6a11cb;
+            --bg-dark: #050505;
+            --card-bg: #0f0f0f;
+            --text-light: #e0e0e0;
+        }
 
-<div class="reveal" style="margin-top: 100px;">
-    <h2 style="text-align: center; font-size: 2.5rem;">Future Roadmap <span style="font-size: 1rem; opacity: 0.5;">2026-2027</span></h2>
-    <p style="text-align: center; color: #888;">Select a project to view technical specifications.</p>
-    
-    <div class="roadmap-grid">
-        <a href="#win17" style="text-decoration: none; color: inherit;">
-            <div class="roadmap-card">
-                <span class="status-badge">IN DEVELOPMENT</span>
-                <h3 style="color: var(--future-purple); margin-top: 10px;">Windows 17</h3>
-                <p>Inspired by the "glass" aesthetic of Windows 11. A translucent, ultra-modern interface powered by the 97 Corp stability kernel.</p>
-                <span style="font-size: 0.8rem; color: var(--future-purple);">Read Documentation &rarr;</span>
-            </div>
-        </a>
+        * { box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* HERO SLIDER - Nu med riktiga tech-bilder */
+        .slider-container {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #222;
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active { opacity: 1; }
         
-        <a href="#97dos" style="text-decoration: none; color: inherit;">
-            <div class="roadmap-card retro">
-                <span class="status-badge">CONCEPT PHASE</span>
-                <h3 style="color: #00ff00; margin-top: 10px;">97 DOS</h3>
-                <p>A command-line only operating system built for 2026. No icons, no distractions—just raw power and cloud-based execution.</p>
-                <span style="font-size: 0.8rem; color: #00ff00;">View Command List &rarr;</span>
-            </div>
-        </a>
+        /* Slide 1: Circuit board/Tech */
+        .slide:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80'); }
+        /* Slide 2: Retro Terminal/Monitor */
+        .slide:nth-child(2) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80'); }
+        /* Slide 3: Modern Glass/Abstract */
+        .slide:nth-child(3) { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&w=1200&q=80'); }
 
-        <a href="#97mobile" style="text-decoration: none; color: inherit;">
-            <div class="roadmap-card">
-                <span class="status-badge">CLASSIFIED</span>
-                <h3 style="color: #fff; margin-top: 10px;">97 Mobile</h3>
-                <p>Bringing the 97 Corp experience to your handheld devices. High-res OLED shells with vintage OS logic.</p>
-                <span style="font-size: 0.8rem; color: #fff; opacity: 0.5;">Access Restricted &rarr;</span>
-            </div>
-        </a>
+        .slide h1 { font-size: 5rem; font-weight: 900; margin: 0; letter-spacing: -3px; text-transform: uppercase; }
+        .slide p { font-size: 1rem; letter-spacing: 5px; opacity: 0.7; margin-top: 10px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        /* ROADMAP CARDS - Inga Wikipedia-länkar här inte! */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .project-link { text-decoration: none; color: inherit; display: block; }
+
+        .roadmap-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid #222;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .roadmap-card h3 { 
+            margin: 15px 0; 
+            font-size: 1.5rem; 
+            font-weight: 700;
+        }
+
+        .status-tag {
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            background: #222;
+            padding: 4px 10px;
+            color: #888;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 80px 20px;
+            color: #333;
+            font-size: 0.7rem;
+            border-top: 1px solid #111;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slide active">
+        <h1>97 CORP</h1>
+        <p>SYSTEM RECONSTRUCTION</p>
+    </div>
+    <div class="slide">
+        <h1>97 DOS</h1>
+        <p>PURE TERMINAL POWER</p>
+    </div>
+    <div class="slide">
+        <h1>WINDOWS 17</h1>
+        <p>THE NEXT GENERATION</p>
     </div>
 </div>
 
-<style>
-    .roadmap-grid a {
-        transition: transform 0.3s ease;
+<div class="container">
+    <div class="reveal" style="text-align: center; margin-bottom: 100px;">
+        <h2 style="font-size: 3rem; margin: 0;">Beyond the Grid.</h2>
+        <p style="color: #666; max-width: 600px; margin: 20px auto;">Established 2026. We build the systems that define the future by honoring the past.</p>
+    </div>
+
+    <div class="roadmap-grid">
+        <a href="#" class="project-link reveal">
+            <div class="roadmap-card" style="border-top: 4px solid var(--future-purple);">
+                <span class="status-tag">FUTURE PROJECT</span>
+                <h3>Windows 17</h3>
+                <p style="color: #888; font-size: 0.9rem;">A glass-aesthetic interface powered by the stable 97 kernel. Experience 2026 speed with peak design.</p>
+            </div>
+        </a>
+
+        <a href="#" class="project-link reveal">
+            <div class="roadmap-card" style="border-top: 4px solid #00ff00;">
+                <span class="status-tag">RETRO ENGINE</span>
+                <h3>97 DOS</h3>
+                <p style="color: #888; font-size: 0.9rem;">Zero distractions. Just you and the command line. Rebuilt for modern cloud-based execution.</p>
+            </div>
+        </a>
+
+        <a href="#" class="project-link reveal">
+            <div class="roadmap-card" style="border-top: 4px solid #fff;">
+                <span class="status-tag">CLASSIFIED</span>
+                <h3>97 Mobile</h3>
+                <p style="color: #888; font-size: 0.9rem;">The 97 Corp ecosystem in your pocket. Coming 2027. [RESTRICTED ACCESS]</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="reveal" style="margin-top: 120px; text-align: center;">
+        <h3 style="font-size: 2rem;">Enter the world of 97</h3>
+        <p style="color: #555;">Want to join 97 Corp? Apply today.</p>
+        <a href="mailto:97corp.official@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: bold; border: 1px solid var(--accent-blue); padding: 15px 30px;">97CORP.OFFICIAL@GMAIL.COM</a>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; 2026 97 CORP | "Making Windows 98 great again (and other stuff idk)."
+</div>
+
+<script>
+    // Slider Logic
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 4000);
+
+    // Reveal Logic
+    function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
+        }
     }
-    .roadmap-grid a:hover {
-        transform: translateY(-10px);
-    }
-    .roadmap-card {
-        cursor: pointer;
-    }
-</style>
+    window.addEventListener("scroll", reveal);
+    reveal();
+</script>
+
+</body>
+</html>
