@@ -2,130 +2,203 @@
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
-    <title>97 CORP - Professional Legacy Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>97 Corp | Future-Proof Legacy Systems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --corp-blue: #000080;
-            --accent-blue: #1084d0;
-            --bg-dark: #0a0a0a;
-            --text-light: #e0e0e0;
+            --win-blue: #000080;
+            --win-sky: #1084d0;
+            --dark-bg: #050505;
+            --card-bg: #111111;
+            --text-main: #f0f0f0;
         }
+
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--dark-bg);
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        /* Hero Section */
         header {
-            background: linear-gradient(90deg, var(--corp-blue), var(--accent-blue));
-            padding: 60px 20px;
+            height: 60vh;
+            background: linear-gradient(135deg, var(--win-blue) 0%, var(--win-sky) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            border-bottom: 4px solid #fff;
+            border-bottom: 5px solid #fff;
+            position: relative;
         }
-        .logo-text {
-            font-size: 3rem;
-            font-weight: 700;
-            letter-spacing: -2px;
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, var(--dark-bg), transparent);
+        }
+
+        .logo {
+            font-size: 5rem;
+            font-weight: 800;
             margin: 0;
+            letter-spacing: -3px;
             text-transform: uppercase;
+            text-shadow: 4px 4px 0px rgba(0,0,0,0.2);
         }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Main Content */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
+            max-width: 1000px;
+            margin: -50px auto 100px;
             padding: 0 20px;
+            position: relative;
+            z-index: 10;
         }
-        .hero {
-            text-align: center;
-            margin-bottom: 60px;
+
+        .mission-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border: 1px solid #333;
+            border-top: 4px solid #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-bottom: 50px;
         }
-        .hero h2 {
-            font-size: 2rem;
-            color: #fff;
+
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 0;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-        .card {
+
+        .service-box {
             background: #1a1a1a;
-            padding: 25px;
-            border-left: 5px solid var(--accent-blue);
-            transition: transform 0.2s;
+            padding: 30px;
+            border-left: 4px solid var(--win-sky);
+            transition: all 0.3s ease;
         }
-        .card:hover {
-            transform: translateY(-5px);
+
+        .service-box:hover {
             background: #222;
+            transform: scale(1.02);
+            border-left-color: #fff;
         }
-        .card h3 {
+
+        .service-box h3 {
+            color: var(--win-sky);
             margin-top: 0;
-            color: var(--accent-blue);
         }
-        .footer {
+
+        /* Stats/Info Area */
+        .info-bar {
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-around;
             text-align: center;
-            padding: 40px;
-            font-size: 0.8rem;
-            color: #666;
             border-top: 1px solid #333;
+            padding-top: 40px;
         }
-        .badge {
+
+        .stat-item h4 { font-size: 2rem; margin: 0; color: #fff; }
+        .stat-item p { font-size: 0.8rem; color: #888; text-transform: uppercase; }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #444;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn {
             display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
             background: #fff;
             color: #000;
-            padding: 5px 10px;
-            font-weight: bold;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .contact-btn:hover {
+            background: var(--win-sky);
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <p class="logo-text">97 Corp</p>
-    <p>Premium Legacy Reconstruction Systems</p>
+    <h1 class="logo">97 Corp</h1>
+    <p class="tagline">PREMIUM LEGACY RECONSTRUCTION</p>
 </header>
 
 <div class="container">
-    <div class="hero">
-        <div class="badge">ESTABLISHED 2026</div>
-        <h2>Vi bygger framtidens dåtid.</h2>
-        <p>97 Corp grundades 2026 med en enkel vision: Att rädda världen från moderna, tråkiga gränssnitt. Vi är specialiserade på att återskapa den legendariska känslan från Windows 98 och 95, men med kraften från morgondagens teknologi.</p>
+    <div class="mission-card">
+        <h2>Framtidens dåtid.</h2>
+        <p>Grundat 2026 i hjärtat av den digitala revolutionen. 97 Corp specialiserar sig på att återskapa, optimera och förädla klassiska system som Windows 98 för den moderna eran. Vi tar det bästa från förr och gör det "shit" som faktiskt håller idag.</p>
+        <a href="mailto:97corp.official@gmail.com" class="contact-btn">KONTAKTA ADMINISTRATIONEN</a>
     </div>
 
     <div class="grid">
-        <div class="card">
+        <div class="service-box">
             <h3>Legacy OS Restoration</h3>
-            <p>Vi tar gamla operativsystem som Windows 98 och bygger om dem från grunden för att fungera i den moderna molneran. Inga buggar, bara nostalgi.</p>
+            <p>Vi bygger om Windows 98/95 från grunden. Samma känsla, men med 2026-års säkerhet och molnbaserad arkitektur.</p>
         </div>
-        <div class="card">
-            <h3>Cloud Simulation</h3>
-            <p>Vår patenterade "Sky-Rendering" teknik skapar de mjukaste molnen marknaden någonsin skådat vid boot-sekvenser.</p>
+        <div class="service-box">
+            <h3>Cloud Sky-Rendering</h3>
+            <p>Vår unika algoritm skapar de mjukaste molnen och den djupaste blå himlen för dina boot-sekvenser. Nostalgi i 4K.</p>
         </div>
-        <div class="card">
-            <h3>97 Chat Protocol</h3>
-            <p>Ett säkert, krypterat och helt privat kommunikationsverktyg byggt för proffs som saknar 90-talets enkelhet.</p>
-        </div>
-        <div class="card">
-            <h3>Retro Hardware Support</h3>
-            <p>Vi gör "shit" som faktiskt håller. Våra system är optimerade för allt från gamla diskettstationer till superdatorer.</p>
+        <div class="service-box">
+            <h3>Custom Retro Dev</h3>
+            <p>Behöver du en specialanpassad 97 Chat eller en privat server för dina gamla Documents? Vi fixar det.</p>
         </div>
     </div>
 
-    <div style="margin-top: 60px; text-align: center; border: 1px solid #333; padding: 30px;">
-        <h3>Vill du bli en del av nätverket?</h3>
-        <p>Kontakta vår administration för att få tillgång till Windows 97 Professional Alpha-tester.</p>
-        <div style="font-weight: bold; color: var(--accent-blue);">ADMIN@97CORP.LOCAL</div>
+    <div class="info-bar">
+        <div class="stat-item">
+            <h4>2026</h4>
+            <p>Etablerat</p>
+        </div>
+        <div class="stat-item">
+            <h4>97%</h4>
+            <p>Cloud Purity</p>
+        </div>
+        <div class="stat-item">
+            <h4>∞</h4>
+            <p>Legacy Support</p>
+        </div>
     </div>
 </div>
 
-<div class="footer">
-    &copy; 2026 97 CORP. ALL RIGHTS RESERVED. <br>
-    "Making Windows 98 great again (and other stuff idk)."
-</div>
+<footer>
+    &copy; 2026 97 CORP OFFICIAL. ALL RIGHTS RESERVED. <br>
+    "MAKING WINDOWS 98 GREAT AGAIN (AND OTHER STUFF IDK)."
+</footer>
 
 </body>
 </html>
